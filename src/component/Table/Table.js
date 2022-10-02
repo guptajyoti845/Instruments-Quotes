@@ -1,15 +1,25 @@
-import './Table.module.css'
+import styles from  './Table.module.css'
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons'
 
-const Table = ({children}) => {
+const Table = ({header, sortBy, children, onSort}) => {
+
     return (
         <>
             <table>
                 <thead>
                 <tr>
-                    <th>Symbol</th>
-                    <th>Name</th>
-                    <th>Sector</th>
+                    {
+                        header.map((col, index) => <th key={index}><span>{col}</span>
+                            {
+                                col === sortBy && <div className={styles.sortButtons}>
+                                    <button onClick={()=>{onSort(true)}}><FontAwesomeIcon icon={faChevronUp} /></button>
+                                    <button onClick={()=>{onSort(false)}}><FontAwesomeIcon icon={faChevronDown} /></button>
+                                </div>
+                            }
+                        </th>)
+                    }
                 </tr>
                 </thead>
                 {children}
@@ -19,3 +29,4 @@ const Table = ({children}) => {
 };
 
 export default Table;
+

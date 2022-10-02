@@ -5,13 +5,14 @@ import Papa from "papaparse";
 import {Link} from "react-router-dom";
 
 const Instruments = ()=>{
+    const instrumentHeader = ['Symbol', 'Name', 'Sector'];
     const [instruments, setInstruments] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error] = useState(null);
     const [filteredInstruments, setFilteredInstruments] = useState([])
 
     useEffect(() => {
-        getInstruments().then(r => console.log(r));
+        getInstruments();
     }, []);
 
     async function getInstruments() {
@@ -38,12 +39,12 @@ const Instruments = ()=>{
     return (
         <React.Fragment>
             <SearchBox onSearch={onSearchHandler}/>
-            <Table>
+            <Table header={instrumentHeader}>
                 <tbody>
                 {!filteredInstruments.length && <h3 style={{margin:"auto", display:"table"}}>No result Found</h3>}
                 {!!filteredInstruments.length && filteredInstruments.map((instrument, index)=>{
                     return (<tr key={index}>
-                        <td><Link to={`quotes/${instrument[0].toLowerCase()}`}>{instrument[0]}</Link></td>
+                        <td><Link to={`quotes/${instrument[0]}`}>{instrument[0]}</Link></td>
                         <td>{instrument[1]}</td>
                         <td>{instrument[2]}</td>
                     </tr>)

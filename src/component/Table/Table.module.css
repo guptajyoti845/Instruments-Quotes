@@ -24,4 +24,22 @@ table th {
     text-align: center;
     background-color: #04aa6d;
     color: white;
+    position: relative;
+}
+
+table th div {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+}
+
+.sortButtons{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    color: white;
+    background-color: #04aa6d;
+    padding:0;
 }

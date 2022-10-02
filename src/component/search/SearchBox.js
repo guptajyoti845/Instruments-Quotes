@@ -5,7 +5,6 @@ import styles from './SearchBox.module.css';
 const SearchBox = ({onSearch}) => {
     const [value, setValue] = useState('')
     const onSearchHandler = () => {
-        console.log("value", value)
         onSearch(value)
     }
 
