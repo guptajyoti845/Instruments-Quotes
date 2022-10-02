@@ -46,5 +46,5 @@ Your app is ready to be deployed!
 
 Potential Improvements:
 1. Extracting the error boundaries for the generic errors in Stocks and Quotes page
-2. Adding the Sass preprocessor for maintaining, scaling and increase the raedbility of the css framework of the application. Using BEM methodology is good option
-3. Extracting the router config for the root component for the router sclability
+2. Adding the Sass preprocessor for maintaining, scaling and increase the readability of the css framework of the application. Using BEM methodology is good option
+3. Extracting the router config for the root component for the router scalability
